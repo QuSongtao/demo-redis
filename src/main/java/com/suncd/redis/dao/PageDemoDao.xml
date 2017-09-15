@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.suncd.redis.dao.PageDemoDao">
+    <!--查询所有数据，指定返回类型为List<PageDemoDto>-->
+    <select id="findAll" resultType="com.suncd.redis.entity.PageDemoDto">
+        SELECT * FROM DEMO_PAGETEST
+    </select>
+    <!-- 按id查询，指定返回类型为PageDemoDto -->
+    <select id="findById" parameterType="String" resultType="com.suncd.redis.entity.PageDemoDto">
+        SELECT * FROM DEMO_PAGETEST WHERE ID = #{id}
+    </select>
+    <!-- 指定sql语句查询，指定返回类型为List<Map> -->
+    <select id="getQueryListBySql" parameterType="String" resultType="java.util.Map">
+        ${_parameter}
+    </select>
+    <!--插入-->
+    <insert id="insertData">
+        INSERT INTO DEMO_PAGETEST(ID,NAME,DESCRIPTION,DEMOCOLUMN) VALUES(#{id},#{name},#{description},#{demoColumn})
+    </insert>
+    <!--删除-->
+    <delete id="deleteById">
+        DELETE FROM DEMO_PAGETEST WHERE ID=#{id}
+    </delete>
+</mapper>

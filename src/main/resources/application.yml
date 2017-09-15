@@ -1,0 +1,23 @@
+server:
+  port: 8084
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.1.39:3306/pms?useUnicode=true&characterEncoding=utf8
+    username: pms
+    password: Pms@123456
+    driver-class-name: com.mysql.jdbc.Driver
+    minIdle: 1
+    maxActive: 2
+    initialSize: 1
+    timeBetweenEvictionRunsMillis: 3000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+  redis:
+    host: 192.168.1.39
+    database: 8
+    port: 6379
